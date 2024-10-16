@@ -3,8 +3,5 @@
 Assignment 7 on DOM
 [Hosted at](https://44-563-webapps-f24.github.io/44563-webapps-f24-assignment7-s575776/Safari.html)<br>
 [Hosted at](https://44-563-webapps-f24.github.io/44563-webapps-f24-assignment7-s575776/precision.html)<br>
-<<<<<<< HEAD
 [Hosted at](https://44-563-webapps-f24.github.io/44563-webapps-f24-assignment7-s575776/divlist.html)
-=======
-[Hosted at](https://44-563-webapps-f24.github.io/44563-webapps-f24-assignment7-s575776/divlist.html)
->>>>>>> def2224fb65dafac2eeac076b398390dffde32c8
+
