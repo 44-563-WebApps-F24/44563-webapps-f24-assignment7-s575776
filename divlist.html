@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Div List Example</title>
+    <style>
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            background-color: red;
+        }
+
+        .flex-container > div {
+            background-color: #f1f1f1;
+            margin: 10px;
+            padding: 20px;
+            font-size: 30px;
+        }
+
+        /* Layout adjustments for smaller screens */
+        @media (max-width: 600px) {
+            .flex-container {
+                flex-direction: column;
+                background-color: green;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Sneha builds List with Divs</h2>
+
+    <input type="text" id="inputText" placeholder="Enter text"><br><br>
+    <button onclick="addToEnd()">Add to End</button><br><br>
+    <button onclick="addToFront()">Add to Front</button><br><br>
+    <button onclick="removeMiddle()">Remove from Middle</button>
+    <br><br>
+
+    <div class="flex-container" id="target">
+        <div class="divlist">row item 1</div>
+        <div class="divlist">row item 2</div>
+        <div class="divlist">row item 3</div>
+    </div>
+
+    <script>
+        function addToEnd() {
+            let newDiv = document.createElement("div")
+            newDiv.innerHTML = document.getElementById("inputText").value
+            newDiv.style.color = "green"
+            newDiv.className = "divlist"
+
+            let container = document.getElementById("target")
+            container.appendChild(newDiv)
+
+            let divItems = document.getElementsByClassName("divlist")
+           let abc=0;
+           divItems[abc].remove()
+        }
+
+        function removeMiddle() {
+            let divItems = document.getElementsByClassName("divlist");
+            let totalItems = divItems.length;
+
+            if (totalItems > 0) {
+                let middleIndex = Math.floor(totalItems / 2);
+                divItems[middleIndex].remove();
+            } 
+        }
+
+        function addToFront() {
+            let newDiv = document.createElement("div");
+            newDiv.innerHTML = document.getElementById("inputText").value;
+            newDiv.style.color = "green";
+            newDiv.className = "divlist";
+
+            let container = document.getElementById("target");
+            container.insertBefore(newDiv, container.firstChild);
+
+            let divItems = document.getElementsByClassName("divlist");
+            if (divItems.length > 0) {
+                divItems[divItems.length - 1].remove();
+            }
+        }
+    </script>
+
+</body>
+</html>

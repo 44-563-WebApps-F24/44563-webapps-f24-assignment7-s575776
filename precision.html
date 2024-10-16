@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Precision Timer</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <h2> Sneha Speed Check</h2>
+
+  <div id="timeDisplay">Elapsed Time</div>
+  <div id="countDisplay">Count: 0</div>
+  <br>
+  <button id="startButton" class="btn btn-primary">Start</button>
+  <button id="stopButton" class="btn btn-danger">Stop</button>
+  
+  <script>
+    let stopTimestamp;
+
+    function captureStopTime() {
+        stopTimestamp = Date.now();
+        console.log("Stop recorded at:", stopTimestamp);
+    }
+
+    document.getElementById("stopButton").onclick = captureStopTime;
+
+    function initiateTimer() {
+        document.getElementById("countDisplay").innerText = "Count: 0";
+        stopTimestamp = undefined;
+
+        for (let i = 0; i < 5; i++) {
+            setTimeout(() => {
+                document.getElementById("countDisplay").innerText = "Count: " + i;
+            }, (4 - i) * 1000); // Decreasing timer
+        }
+
+        setTimeout(() => {
+            if (!stopTimestamp) {
+                document.getElementById("timeDisplay").innerText = "Your time: Too Slow!";
+            } else {
+                let timeDifference = Date.now() - stopTimestamp;
+                document.getElementById("timeDisplay").innerText = `Time recorded: ${timeDifference} ms`;
+            }
+        }, 5000); // 5 seconds total duration
+    }
+
+    document.getElementById("startButton").onclick = initiateTimer;
+  </script>
+
+</body>
+</html>
